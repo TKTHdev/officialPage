@@ -1,65 +1,470 @@
-<html><head>
-<title>Harunari's Personal Home Pagi</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harunari Takata — Personal Home Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f6;
+    --fg: #1a1a1a;
+    --accent: #2d5a27;
+    --accent-light: #e8f0e6;
+    --muted: #6b6b6b;
+    --border: #d4d0c8;
+    --link: #1a5276;
+    --link-hover: #2d5a27;
+    --code-bg: #f0ede6;
+    --card-bg: #ffffff;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.7;
+    padding: 0 1.5rem;
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 3rem 0 4rem;
+  }
+
+  /* ── header ── */
+  header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--fg);
+  }
+
+  header h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.25rem;
+  }
+
+  header .subtitle {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+  }
+
+  header .tagline {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  .contact-row a {
+    color: var(--link);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .contact-row a:hover {
+    border-bottom-color: var(--link);
+  }
+
+  /* ── sections ── */
+  section {
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── about ── */
+  .about p {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+  }
+
+  /* ── entry blocks ── */
+  .entry {
+    margin-bottom: 1.8rem;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .entry-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .entry-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .entry-org {
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .entry ul {
+    padding-left: 1.2rem;
+    font-size: 0.93rem;
+  }
+
+  .entry li {
+    margin-bottom: 0.3rem;
+    color: #333;
+  }
+
+  /* ── publication ── */
+  .pub {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.2rem;
+    border-radius: 3px;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    box-shadow: var(--shadow);
+  }
+
+  .pub .venue {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 0.4rem;
+    background: var(--accent-light);
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+  }
+
+  /* ── skills ── */
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .skill-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.65rem;
+    border-radius: 2px;
+    color: var(--fg);
+  }
+
+  /* ── award ── */
+  .award {
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .award:last-child { border-bottom: none; }
+
+  .award-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .award-detail {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  /* ── links row ── */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .links-grid a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--link);
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    transition: all 0.2s;
+    display: block;
+    text-align: center;
+  }
+
+  .links-grid a:hover {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ── personal ── */
+  .interests {
+    font-size: 0.95rem;
+    color: #444;
+  }
+
+  /* ── quote ── */
+  .quote {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--fg);
+    text-align: center;
+  }
+
+  .quote blockquote {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--muted);
+  }
+
+  .quote a {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--muted);
+  }
+
+  /* ── responsive ── */
+  @media (max-width: 500px) {
+    header h1 { font-size: 1.4rem; }
+    .entry-header { flex-direction: column; }
+    .contact-row { flex-direction: column; gap: 0.25rem; }
+  }
+</style>
 </head>
+<body>
+<div class="container">
 
-<body bgcolor="#FFFFFF" text="#000000">
+  <!-- ═══ HEADER ═══ -->
+  <header>
+    <h1>Harunari "TKT" Takata</h1>
+    <div class="subtitle">高田 晴成（たかた はるなり）</div>
+  
+    <div class="contact-row">
+      <span>tkt0430@keio.jp</span>
+      <span>(+81) 080-6969-0203</span>
+      <span>Fujisawa, Kanagawa, Japan</span>
+    </div>
+  </header>
 
-<!-- Built from main -->
-<h1>
-Harunari "TKT" Takata  <br>Personal Home Page<br>
-<img width="371" height="556" src="e7779178-40f3-41db-963f-839f3bcc8286-1_all_11929.jpg" ><br>
-</h1>
+  <!-- ═══ ABOUT ═══ -->
+  <section class="about">
+    <h2>Who I Am</h2>
+    <p>
+      I am a research staff at
+      <a href="https://www.keio.ac.jp/en/">Keio University</a>, Faculty of Environment and Information Studies.
+      I study Distributed Systems at the
+      <a href="https://sites.google.com/view/dpl-sfc/">Data Platform Laboratory</a> /
+      focusing on distributed consensus algorithms and geo-replicated databases.
+    </p>
+    <p>
+      I spent 2024–2025 on exchange at the University of Toronto's Faculty of Applied Science and Engineering,
+      where I began working as a Research Assistant — work that led to a publication at ACM SIGMOD 2026.
+    </p>
+  </section>
 
-<h2>###I just completed my exchange programme at University of Toronto at Canada.</h2>
-<h2>###It was great that I met so many talented, resilient and nice people here!</h2>
-<h2>###I am grateful for all my encounters and sh-boom hope we'll meet again!</h2>
-<p>Favorite quote: <a href="https://youtu.be/cJMwBwFj5nQ?si=bjKSdEsOsVT4neso"><i>"Be water my friend."</i></a>
+  <!-- ═══ EDUCATION ═══ -->
+  <section>
+    <h2>Education</h2>
 
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Keio University</span>
+        <span class="entry-date">Mar 2022 – Mar 2026</span>
+      </div>
+      <div class="entry-org">B.A., Faculty of Environment and Information Studies</div>
+      <ul>
+        <li>Dissertation: <em>An re-implementation and analysis of Raft consensus algorithm</em></li>
+      </ul>
+    </div>
 
-    
-</p><h3><p>Who I Am</p></h3>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">University of Toronto</span>
+        <span class="entry-date">Sep 2024 – Apr 2025</span>
+      </div>
+      <div class="entry-org">Exchange Program, Faculty of Applied Science and Engineering</div>
+    </div>
+  </section>
 
-<p>Visit
-my <a href="https://www.linkedin.com/in/takata-harunari-a27609255/">LinkedIn</a> for some inspiration.
+  <!-- ═══ EXPERIENCE ═══ -->
+  <section>
+    <h2>Professional &amp; Research Experience</h2>
 
-</p><p>I am the third year undergraduate student in  <a href="https://www.keio.ac.jp/en/">Keio University</a>
-See also my <a href="https://github.com/TKTHdev">Github.</a>
-I am <a href="https://twitter.com/jamiroqTKT">@jamiroq_tkt</a> on Twitter.
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Infrastructure Engineer</span>
+        <span class="entry-date">Jan 2026 – present</span>
+      </div>
+      <div class="entry-org">PLAID Inc. · Tokyo, Japan</div>
+      <ul>
+        <li>Contributing to Mila, a proprietary distributed OLAP engine optimized for high-concurrency real-time data processing.</li>
+        <li>Optimized the storage engine by identifying and resolving replication-layer bottlenecks through systematic stress testing, accelerating query execution speed by 1.6×.</li>
+      </ul>
+    </div>
 
-</p><p>I am currently studying Distributed Systems  at <a href="https://sites.google.com/view/dpl-sfc/%E3%83%9B%E3%83%BC%E3%83%A0?authuser=0">Data Platform Laboratory</a> / <a href="https://delight.sfc.wide.ad.jp/en">Jun Murai Lab Delight Group</a>
-<br>Especially, I am working on Computer Science, Distributed Consensus Algorithm.
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Infrastructure Engineer</span>
+        <span class="entry-date">Jun 2025 – Dec 2025</span>
+      </div>
+      <div class="entry-org">Mirrativ Inc. · Tokyo, Japan</div>
+      <ul>
+        <li>Designed and developed an S3-compatible in-house object storage system.</li>
+        <li>Built high-performance benchmarking tools for stress-testing storage backends, covering limit testing, mixed R/W workloads, and long-term durability assessments.</li>
+        <li>Resolved port exhaustion and TIME_WAIT spikes during load testing by tuning <code>MaxIdleConnsPerHost</code> in the internal reverse proxy.</li>
+        <li>Reduced disk I/O and memory consumption during multipart downloads by refactoring to stream data directly, eliminating temporary disk spooling.</li>
+        <li>Prevented OOM errors under high concurrency by redesigning the in-memory cache with a dynamically adjustable eviction policy.</li>
+        <li>Achieved 100% response reliability during benchmarks by fixing race conditions with proper mutual exclusion.</li>
+      </ul>
+    </div>
 
-</p><h3>How to Reach Me</h3>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Research Assistant</span>
+        <span class="entry-date">May 2025 – present</span>
+      </div>
+      <div class="entry-org">University of Toronto · Toronto, Canada</div>
+      <ul>
+        <li>Implemented a full-set TPC-C benchmarking suite from scratch for evaluating distributed transaction performance.</li>
+        <li>Identified a fatal execution error from improper CPU pinning that had prevented system initialization.</li>
+        <li>Simulated geographically distributed networks via synthetic latency injection using Linux <code>tc</code>.</li>
+        <li>Work accepted at ACM SIGMOD 2026.</li>
+      </ul>
+    </div>
+  </section>
 
-<p>You can send email for me to tkthdev (at) gmail.com
-<br>I read everything sent there.
+  <!-- ═══ TEACHING ═══ -->
+  <section>
+    <h2>Teaching Experience</h2>
 
-</p><h3>My Name</h3>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Student Instructor</span>
+        <span class="entry-date">2022 – 2026</span>
+      </div>
+      <div class="entry-org">Keio University — Independently Designed and Taught Courses</div>
+      <ul>
+        <li><strong>Fundamentals of Information Technology 1</strong> — Taught core CS concepts (system architecture, internet protocols, cybersecurity) and mentored Python programming assignments.</li>
+        <li><strong>Fundamentals of Information Technology 2</strong> — Supervised project-based game development in Python, evaluated student projects, and provided feedback on software design.</li>
+      </ul>
+    </div>
+  </section>
 
-<p>My name is 高田　晴成(たかた　はるなり) in Japanese.
-    <br>
-    <a href="https://www.jamiroquai.com/">Jamiroquai</a>.
+  <!-- ═══ PUBLICATIONS ═══ -->
+  <section>
+    <h2>Publications</h2>
+    <div class="pub">
+      Yunhao Mao, <strong>Harunari Takata</strong>, Michalis Bashras, Yuqiu Zhang, Shiquan Zhang, Gengrui Zhang
+      and Hans-Arno Jacobsen.
+      "Epoch-based Optimistic Concurrency Control in Geo-replicated Databases."
+      <em>Proceedings of the 2026 ACM SIGMOD International Conference on Management of Data.</em>
+      <span class="venue">SIGMOD 2026</span>
+    </div>
+  </section>
 
-</p><h3>More Hyperlinks</h3>
+  <!-- ═══ SKILLS ═══ -->
+  <section>
+    <h2>Skills</h2>
+    <div class="skill-tags">
+      <span class="skill-tag">Go</span>
+      <span class="skill-tag">C++</span>
+      <span class="skill-tag">Java</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">LaTeX</span>
+      <span class="skill-tag">Git</span>
+      <span class="skill-tag">Docker</span>
+    </div>
+    <p style="margin-top: 0.8rem; font-size: 0.93rem; color: var(--muted);">
+      Languages: Japanese (Native) · English (Proficient) · Chinese (Beginner)
+    </p>
+  </section>
 
-<ul>
+  <!-- ═══ HONORS ═══ -->
+  <section>
+    <h2>Honors &amp; Awards</h2>
+    <div class="award">
+      <div class="award-name">Kobe Bussan Foundation Scholarship for Study Abroad</div>
+      <div class="award-detail">2025 · ¥1,850,000 — Competitive scholarship for students pursuing studies and research at international institutions.</div>
+    </div>
+  </section>
 
-<li><a href="https://www.instagram.com/jamiroq_tkt">Instagram</a><p>
+  <!-- ═══ LINKS ═══ -->
+  <section>
+    <h2>Find Me Online</h2>
+    <div class="links-grid">
+      <a href="https://www.linkedin.com/in/takata-harunari-a27609255/">LinkedIn</a>
+      <a href="https://github.com/TKTHdev">GitHub</a>
+      <a href="https://twitter.com/jamiroqTKT">Twitter</a>
+      <a href="https://www.instagram.com/jamiroq_tkt">Instagram</a>
+    </div>
+  </section>
 
-</p></lid<p>
+  <!-- ═══ PERSONAL ═══ -->
+  <section>
+    <h2>Things I Like</h2>
+    <p class="interests">Basketball · Memes · Photography · <a href="https://www.jamiroquai.com/">Jamiroquai</a></p>
+  </section>
 
-</p></li></ul>
+  <!-- ═══ CONTACT ═══ -->
+  <section>
+    <h2>How to Reach Me</h2>
+    <p style="font-size: 0.95rem;">
+      Send me an email at <strong>tkthdev (at) gmail.com</strong> — I read everything sent there.
+    </p>
+  </section>
 
-<h3>Things I like </h3>
-<li>Basketball.</li>
-<li>Memes.</li>
-<li>Photography.</li>
+  <!-- ═══ QUOTE ═══ -->
+  <div class="quote">
+    <blockquote>
+      <a href="https://youtu.be/cJMwBwFj5nQ?si=bjKSdEsOsVT4neso">"Be water, my friend."</a>
+    </blockquote>
+  </div>
 
-
-</p>
-<hr>
-<p></p>
-<hr>
-
-
-</body></html>
+</div>
+</body>
+</html>
