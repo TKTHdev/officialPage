@@ -6,295 +6,18 @@
 <title>Harunari Takata — Personal Home Page</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #faf9f6;
-    --fg: #1a1a1a;
-    --accent: #2d5a27;
-    --accent-light: #e8f0e6;
-    --muted: #6b6b6b;
-    --border: #d4d0c8;
-    --link: #1a5276;
-    --link-hover: #2d5a27;
-    --code-bg: #f0ede6;
-    --card-bg: #ffffff;
-    --shadow: 0 1px 3px rgba(0,0,0,0.06);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Source Serif 4', Georgia, serif;
-    background: var(--bg);
-    color: var(--fg);
-    line-height: 1.7;
-    padding: 0 1.5rem;
-  }
-
-  .container {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 3rem 0 4rem;
-  }
-
-  /* ── header ── */
-  header {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2rem;
-    border-bottom: 2px solid var(--fg);
-  }
-
-  header h1 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.75rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    margin-bottom: 0.25rem;
-  }
-
-  header .subtitle {
-    font-size: 0.95rem;
-    color: var(--muted);
-    margin-bottom: 1.2rem;
-  }
-
-  header .tagline {
-    font-style: italic;
-    color: var(--muted);
-    font-size: 1.05rem;
-    margin-bottom: 1rem;
-  }
-
-  .contact-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.5rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    color: var(--muted);
-  }
-
-  .contact-row a {
-    color: var(--link);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
-  }
-  .contact-row a:hover {
-    border-bottom-color: var(--link);
-  }
-
-  /* ── sections ── */
-  section {
-    margin-bottom: 2.5rem;
-  }
-
-  h2 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--accent);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-
-  h2::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  /* ── about ── */
-  .about p {
-    margin-bottom: 0.8rem;
-    font-size: 1rem;
-  }
-
-  /* ── entry blocks ── */
-  .entry {
-    margin-bottom: 1.8rem;
-  }
-
-  .entry-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-    margin-bottom: 0.15rem;
-  }
-
-  .entry-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
-    font-size: 0.95rem;
-  }
-
-  .entry-date {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-
-  .entry-org {
-    font-size: 0.92rem;
-    color: var(--muted);
-    margin-bottom: 0.4rem;
-  }
-
-  .entry ul {
-    padding-left: 1.2rem;
-    font-size: 0.93rem;
-  }
-
-  .entry li {
-    margin-bottom: 0.3rem;
-    color: #333;
-  }
-
-  /* ── publication ── */
-  .pub {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    padding: 1rem 1.2rem;
-    border-radius: 3px;
-    font-size: 0.92rem;
-    line-height: 1.6;
-    box-shadow: var(--shadow);
-  }
-
-  .pub .venue {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--accent);
-    font-weight: 600;
-    display: inline-block;
-    margin-top: 0.4rem;
-    background: var(--accent-light);
-    padding: 0.15rem 0.5rem;
-    border-radius: 2px;
-  }
-
-  /* ── skills ── */
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-  }
-
-  .skill-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    background: var(--code-bg);
-    border: 1px solid var(--border);
-    padding: 0.2rem 0.65rem;
-    border-radius: 2px;
-    color: var(--fg);
-  }
-
-  /* ── award ── */
-  .award {
-    padding: 0.8rem 0;
-    border-bottom: 1px dashed var(--border);
-  }
-  .award:last-child { border-bottom: none; }
-
-  .award-name {
-    font-weight: 600;
-    font-size: 0.95rem;
-  }
-
-  .award-detail {
-    font-size: 0.9rem;
-    color: var(--muted);
-  }
-
-  /* ── links row ── */
-  .links-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 0.5rem;
-  }
-
-  .links-grid a {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.82rem;
-    color: var(--link);
-    text-decoration: none;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    transition: all 0.2s;
-    display: block;
-    text-align: center;
-  }
-
-  .links-grid a:hover {
-    background: var(--accent-light);
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  /* ── personal ── */
-  .interests {
-    font-size: 0.95rem;
-    color: #444;
-  }
-
-  /* ── gallery ── */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 0.6rem;
-  }
-
-  .gallery img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    box-shadow: var(--shadow);
-    display: block;
-  }
-
-  /* ── quote ── */
-  .quote {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 2px solid var(--fg);
-    text-align: center;
-  }
-
-  .quote blockquote {
-    font-style: italic;
-    font-size: 1.1rem;
-    color: var(--muted);
-  }
-
-  .quote a {
-    color: var(--muted);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--muted);
-  }
-
-  /* ── responsive ── */
-  @media (max-width: 500px) {
-    header h1 { font-size: 1.4rem; }
-    .entry-header { flex-direction: column; }
-    .contact-row { flex-direction: column; gap: 0.25rem; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
+<link rel="alternate" hreflang="en" href="https://tkthdev.github.io/officialPage/index.html">
+<link rel="alternate" hreflang="ja" href="https://tkthdev.github.io/officialPage/ja.html">
 </head>
 <body>
 <div class="container">
+
+  <!-- ═══ LANGUAGE SWITCH ═══ -->
+  <nav class="lang-switch" aria-label="Language">
+    <a href="index.html" class="active" aria-current="page">EN</a>
+    <a href="ja.html" hreflang="ja">日本語</a>
+  </nav>
 
   <!-- ═══ HEADER ═══ -->
   <header>
@@ -312,13 +35,17 @@
   <section class="about">
     <h2>Who I Am</h2>
     <p>
-      I am a research staff at
-      <a href="https://www.keio.ac.jp/en/">Keio University</a>, Faculty of Environment and Information Studies.
-      I study Distributed Systems at the
-      <a href="https://sites.google.com/view/dpl-sfc/">Data Platform Laboratory</a> /
+      I am a MASc student at
+      <a href="https://www.concordia.ca/">Concordia University</a>,
+      <a href="https://www.concordia.ca/ginacody.html">Gina Cody School of Engineering and Computer Science</a>,
+      where I do research in the
+      <a href="https://www.gengruizhang.com/">DISCOS Lab</a> (Distributed Computing and Systems),
       focusing on distributed consensus algorithms and geo-replicated databases.
     </p>
     <p>
+      Before that, I was at <a href="https://www.keio.ac.jp/en/">Keio University</a>,
+      Faculty of Environment and Information Studies, where I studied Distributed Systems at the
+      <a href="https://sites.google.com/view/dpl-sfc/">Data Platform Laboratory</a>.
       I spent 2024–2025 on exchange at the University of Toronto's Faculty of Applied Science and Engineering,
       where I began working as a Research Assistant — work that led to a publication at ACM SIGMOD 2026.
     </p>
@@ -327,6 +54,20 @@
   <!-- ═══ EDUCATION ═══ -->
   <section>
     <h2>Education</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Concordia University</span>
+        <span class="entry-date">2026 – present</span>
+      </div>
+      <div class="entry-org">
+        MASc, Electrical and Computer Engineering —
+        <a href="https://www.concordia.ca/ginacody.html">Gina Cody School of Engineering and Computer Science</a>
+      </div>
+      <ul>
+        <li>Member of the <a href="https://www.gengruizhang.com/">DISCOS Lab</a> (Distributed Computing and Systems).</li>
+      </ul>
+    </div>
 
     <div class="entry">
       <div class="entry-header">
@@ -361,7 +102,7 @@
       <ul>
         <li>Contributing to Mila, a proprietary distributed OLAP engine optimized for high-concurrency real-time data processing.</li>
         <li>Optimized the storage engine by identifying and resolving  bottlenecks through systematic stress testing, accelerating query execution speed by 1.6×.</li>
-      </ul
+      </ul>
     </div>
 
     <div class="entry">
@@ -416,11 +157,30 @@
   <section>
     <h2>Publications</h2>
     <div class="pub">
-      Yunhao Mao, <strong>Harunari Takata</strong>, Michalis Bashras, Yuqiu Zhang, Shiquan Zhang, Gengrui Zhang
+      Yunhao Mao, <strong>Harunari Takata</strong>, Michail Bachras, Yuqiu Zhang, Shiquan Zhang, Gengrui Zhang
       and Hans-Arno Jacobsen.
-      "Epoch-based Optimistic Concurrency Control in Geo-replicated Databases."
-      <em>Proceedings of the 2026 ACM SIGMOD International Conference on Management of Data.</em>
-      <span class="venue">SIGMOD 2026</span>
+      "<a href="https://dl.acm.org/doi/10.1145/3802052">Epoch-based Optimistic Concurrency Control in Geo-replicated Databases</a>."
+      <em>Proceedings of the ACM on Management of Data (SIGMOD)</em>, 2026.
+      <div class="pub-links">
+        <span class="venue">SIGMOD 2026</span>
+        <a class="pub-link" href="https://dl.acm.org/doi/10.1145/3802052">ACM DL ↗</a>
+        <a class="pub-link" href="https://doi.org/10.1145/3802052">doi:10.1145/3802052</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WRITING ═══ -->
+  <section>
+    <h2>Writing</h2>
+    <div class="pub">
+      <strong>Harunari Takata</strong>.
+      "<a href="https://dbsj.org/newsletter-vol-19-no-4/">ACM SIGMOD/PODS 2026 参加報告</a>"
+      (A trip report on ACM SIGMOD/PODS 2026, Bengaluru, India).
+      <em>DBSJ Newsletter, Vol. 19, No. 4</em>, The Database Society of Japan, August 2026.
+      <div class="pub-links">
+        <a class="pub-link" href="https://dbsj.org/newsletter-vol-19-no-4/">DBSJ Newsletter ↗</a>
+        <span class="lang-note">written in Japanese</span>
+      </div>
     </div>
   </section>
 

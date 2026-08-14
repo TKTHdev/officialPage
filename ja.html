@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高田 晴成 — 個人ページ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="alternate" hreflang="en" href="https://tkthdev.github.io/officialPage/index.html">
+<link rel="alternate" hreflang="ja" href="https://tkthdev.github.io/officialPage/ja.html">
+</head>
+<body>
+<div class="container">
+
+  <!-- ═══ LANGUAGE SWITCH ═══ -->
+  <nav class="lang-switch" aria-label="言語">
+    <a href="index.html" hreflang="en">EN</a>
+    <a href="ja.html" class="active" aria-current="page">日本語</a>
+  </nav>
+
+  <!-- ═══ HEADER ═══ -->
+  <header>
+    <h1>高田 晴成</h1>
+    <div class="subtitle">Harunari "TKT" Takata（たかた はるなり）</div>
+
+    <div class="contact-row">
+      <span>tkt0430@keio.jp</span>
+      <span>(+81) 080-6969-0203</span>
+      <span>神奈川県藤沢市</span>
+    </div>
+  </header>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="about">
+    <h2>自己紹介</h2>
+    <p>
+      <a href="https://www.concordia.ca/">Concordia University</a>、
+      <a href="https://www.concordia.ca/ginacody.html">Gina Cody School of Engineering and Computer Science</a> の
+      MASc（修士）課程に在籍しています。
+      <a href="https://www.gengruizhang.com/">DISCOS Lab</a>（Distributed Computing and Systems）に所属し、
+      分散合意アルゴリズムと地理分散データベースを中心に研究しています。
+    </p>
+    <p>
+      それ以前は<a href="https://www.keio.ac.jp/">慶應義塾大学</a>環境情報学部に在籍し、
+      <a href="https://sites.google.com/view/dpl-sfc/">データプラットフォーム研究室</a>で分散システムを研究していました。
+      2024〜2025年にはトロント大学 Faculty of Applied Science and Engineering に交換留学し、
+      そこで Research Assistant としての活動を始めました。この研究が ACM SIGMOD 2026 での論文発表につながっています。
+    </p>
+  </section>
+
+  <!-- ═══ EDUCATION ═══ -->
+  <section>
+    <h2>学歴</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Concordia University</span>
+        <span class="entry-date">2026年 – 現在</span>
+      </div>
+      <div class="entry-org">
+        MASc（電気・コンピュータ工学）—
+        <a href="https://www.concordia.ca/ginacody.html">Gina Cody School of Engineering and Computer Science</a>
+      </div>
+      <ul>
+        <li><a href="https://www.gengruizhang.com/">DISCOS Lab</a>（Distributed Computing and Systems）所属。</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">慶應義塾大学</span>
+        <span class="entry-date">2022年3月 – 2026年3月</span>
+      </div>
+      <div class="entry-org">環境情報学部 学士</div>
+      <ul>
+        <li>卒業論文: <em>Raft 合意アルゴリズムの再実装と分析</em></li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">トロント大学</span>
+        <span class="entry-date">2024年9月 – 2025年4月</span>
+      </div>
+      <div class="entry-org">交換留学プログラム、Faculty of Applied Science and Engineering</div>
+    </div>
+  </section>
+
+  <!-- ═══ EXPERIENCE ═══ -->
+  <section>
+    <h2>職歴・研究経験</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">インフラエンジニア</span>
+        <span class="entry-date">2026年1月 – 現在</span>
+      </div>
+      <div class="entry-org">株式会社プレイド · 東京</div>
+      <ul>
+        <li>高並列なリアルタイムデータ処理に最適化された自社製分散 OLAP エンジン Mila の開発に従事。</li>
+        <li>系統的な負荷試験によりストレージエンジンのボトルネックを特定・解消し、クエリ実行速度を1.6倍に改善。</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">インフラエンジニア</span>
+        <span class="entry-date">2025年6月 – 2025年12月</span>
+      </div>
+      <div class="entry-org">株式会社ミラティブ · 東京</div>
+      <ul>
+        <li>S3 互換の自社オブジェクトストレージシステムを設計・開発。</li>
+        <li>限界試験・R/W 混在ワークロード・長期耐久性評価に対応した高性能ベンチマークツールを構築。</li>
+        <li>内製リバースプロキシの <code>MaxIdleConnsPerHost</code> をチューニングし、負荷試験時のポート枯渇と TIME_WAIT の急増を解消。</li>
+        <li>マルチパートダウンロードを直接ストリーミングする実装へリファクタリングし、一時ファイルへの書き出しを排除してディスク I/O とメモリ消費を削減。</li>
+        <li>動的に調整可能な追い出しポリシーを備えたインメモリキャッシュへ再設計し、高並列時の OOM を防止。</li>
+        <li>排他制御を適切に導入して競合状態を修正し、ベンチマーク中のレスポンス成功率100%を達成。</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Research Assistant</span>
+        <span class="entry-date">2025年5月 – 現在</span>
+      </div>
+      <div class="entry-org">トロント大学 · カナダ・トロント</div>
+      <ul>
+        <li>分散トランザクション性能を評価するため、TPC-C ベンチマークのフルセットをゼロから実装。</li>
+        <li>CPU ピニングの不備によりシステムが初期化できなくなる致命的な実行エラーを特定。</li>
+        <li>Linux の <code>tc</code> による遅延注入で地理分散ネットワークをシミュレート。</li>
+        <li>本研究は ACM SIGMOD 2026 に採択。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ TEACHING ═══ -->
+  <section>
+    <h2>教育経験</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">学生講師（SA）</span>
+        <span class="entry-date">2022年 – 2026年</span>
+      </div>
+      <div class="entry-org">慶應義塾大学 — 独自に設計・担当した講義</div>
+      <ul>
+        <li><strong>情報技術基礎 1</strong> — システムアーキテクチャ、インターネットプロトコル、サイバーセキュリティなどの基礎を講義し、Python の課題を指導。</li>
+        <li><strong>情報技術基礎 2</strong> — Python によるゲーム開発のプロジェクト演習を監督し、成果物の評価とソフトウェア設計に関するフィードバックを実施。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ PUBLICATIONS ═══ -->
+  <section>
+    <h2>論文</h2>
+    <div class="pub">
+      Yunhao Mao, <strong>Harunari Takata</strong>, Michail Bachras, Yuqiu Zhang, Shiquan Zhang, Gengrui Zhang
+      and Hans-Arno Jacobsen.
+      "<a href="https://dl.acm.org/doi/10.1145/3802052">Epoch-based Optimistic Concurrency Control in Geo-replicated Databases</a>."
+      <em>Proceedings of the ACM on Management of Data (SIGMOD)</em>, 2026.
+      <div class="pub-links">
+        <span class="venue">SIGMOD 2026</span>
+        <a class="pub-link" href="https://dl.acm.org/doi/10.1145/3802052">ACM DL ↗</a>
+        <a class="pub-link" href="https://doi.org/10.1145/3802052">doi:10.1145/3802052</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WRITING ═══ -->
+  <section>
+    <h2>執筆記事</h2>
+    <div class="pub">
+      <strong>高田 晴成</strong>.
+      「<a href="https://dbsj.org/newsletter-vol-19-no-4/">ACM SIGMOD/PODS 2026 参加報告</a>」
+      <em>日本データベース学会 Newsletter Vol. 19, No. 4</em>、2026年8月。
+      <div class="pub-links">
+        <a class="pub-link" href="https://dbsj.org/newsletter-vol-19-no-4/">DBSJ Newsletter ↗</a>
+        <span class="lang-note">日本語</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SKILLS ═══ -->
+  <section>
+    <h2>スキル</h2>
+    <div class="skill-tags">
+      <span class="skill-tag">Go</span>
+      <span class="skill-tag">C++</span>
+      <span class="skill-tag">Java</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">LaTeX</span>
+      <span class="skill-tag">Git</span>
+      <span class="skill-tag">Docker</span>
+    </div>
+    <p style="margin-top: 0.8rem; font-size: 0.93rem; color: var(--muted);">
+      語学: 日本語（母語）· 英語（ビジネスレベル）· 中国語（初級）
+    </p>
+  </section>
+
+  <!-- ═══ HONORS ═══ -->
+  <section>
+    <h2>受賞・奨学金</h2>
+    <div class="award">
+      <div class="award-name">神戸物産財団 海外留学奨学金</div>
+      <div class="award-detail">2025年 · 1,850,000円 — 海外の研究機関で学び研究する学生を対象とした競争的奨学金。</div>
+    </div>
+  </section>
+
+  <!-- ═══ LINKS ═══ -->
+  <section>
+    <h2>オンラインでの活動</h2>
+    <div class="links-grid">
+      <a href="https://www.linkedin.com/in/takata-harunari-a27609255/">LinkedIn</a>
+      <a href="https://github.com/TKTHdev">GitHub</a>
+      <a href="https://twitter.com/jamiroqTKT">Twitter</a>
+      <a href="https://www.instagram.com/jamiroq_tkt">Instagram</a>
+    </div>
+  </section>
+
+  <!-- ═══ PERSONAL ═══ -->
+  <section>
+    <h2>好きなもの</h2>
+    <p class="interests">バスケットボール · ミーム · 写真 · <a href="https://www.jamiroquai.com/">Jamiroquai</a></p>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section>
+    <h2>連絡先</h2>
+    <p style="font-size: 0.95rem;">
+      <strong>tkthdev (at) gmail.com</strong> までメールをどうぞ。届いたものにはすべて目を通しています。
+    </p>
+  </section>
+
+  <!-- ═══ GALLERY ═══ -->
+  <section>
+    <h2>写真</h2>
+    <div class="gallery">
+      <img src="confbase-6601.jpg" alt="学会での写真" loading="lazy">
+      <img src="confbase-13674.jpg" alt="学会での写真" loading="lazy">
+      <img src="e7779178-40f3-41db-963f-839f3bcc8286-1_all_11929.jpg" alt="写真" loading="lazy">
+    </div>
+  </section>
+
+  <!-- ═══ QUOTE ═══ -->
+  <div class="quote">
+    <blockquote>
+      <a href="https://youtu.be/cJMwBwFj5nQ?si=bjKSdEsOsVT4neso">"Be water, my friend."</a>
+    </blockquote>
+  </div>
+
+</div>
+</body>
+</html>
